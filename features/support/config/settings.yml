@@ -1,0 +1,4 @@
+DEFAULT_DATE_FORMAT: 'mm/dd/yyyy' #Set a default format for date helpers to be used in expressions like "Today's Date" in the framework. 
+MAX_WAIT_TIME: 2 #seconds. When a test fails because of a potential issue with DOM loading, the framework will retry running the test for this much time. If your application is slow, feel free to increase this time and see if it reduces failures.
+MIN_WAIT_TIME: 0 #seconds. Used when validating absence of a DOM element, typically this is shorter than the default wait time, since we don't want to wait too long for elements we are not expecting will be present
+DEFAULT_ENVIRONMENT: 'Heroku'

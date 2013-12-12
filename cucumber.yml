@@ -1,0 +1,8 @@
+#initialize variables
+<% common = "ENVIRONMENT=Heroku -r features/support  -r features/step_definitions " %> #TODO: Find a better way of exporting env for cms cases
+<% selenium = "-r features/profiles/selenium.rb " %>
+<% websteps = "--tags @websteps " %>
+<% cms = "--tags @cms" %>
+#create profiles
+selenium_rspec:    <%= common + selenium + websteps %>  features
+selenium_cms:      <%= common + selenium + cms %>  features
