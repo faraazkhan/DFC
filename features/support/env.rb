@@ -2,7 +2,6 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'active_support/all'
 
-
 require 'capybara/dsl'
 require 'rspec'
 RSpec.configure do |config|

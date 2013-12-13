@@ -1,0 +1,3 @@
+## Test Application Selectors
+ResultsTable: "css:div#resultsTable"
+ProfileInformation: "css:div#ProfileInfoContent"
