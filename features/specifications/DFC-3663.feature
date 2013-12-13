@@ -1,4 +1,4 @@
-#Feature: Smoke Test DFC
+#Feature: DFC-3663 
   #Scenario Outline: DFC-3663
     #Given I am on the "Home" page
     #When I fill in "Location" with "<State>"
