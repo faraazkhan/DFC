@@ -1,0 +1,66 @@
+steps,example,arguments
+-------THE FOLLOWING STEPS ARE IN THE---------,/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/debugging_steps.rb,-------FILE-------
+^show me the page$," Then show me the page",N/A
+^I debug$," Then I debug",N/A
+^I wait (\d+) second(?:|s)$," And I wait 10 seconds",seconds
+-------THE FOLLOWING STEPS ARE IN THE---------,/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/form_steps.rb,-------FILE-------
+^(?:|I )fill in the following:$,N/A,fields
+"^(?:|I )fill in ""([^""]*)"" with ""([^""]*)""$"," When I fill in ""Name"" with ""my name""","field, value"
+"^(?:|I )fill in ""([^""]*)"" with:$"," See Gist","field, value"
+"^I enter ""(.*?)"" in the ""(.*?)"" field$","  And I enter ""I made this"" in the ""Describe yourself"" field","value, field"
+"^I key in the date ""(.*?)"" in the ""(.*?)"" field$"," Then I key in the date ""12/01/2013"" in the ""Date"" field","date_rule, field"
+"^(?:|I )select ""([^""]*)"" from ""([^""]*)""$"," When I select ""Male"" from ""Sex""","value, field"
+"^(?:|I )check ""([^""]*)""$"," And I check ""Accept user agrement""",field
+"^(?:|I )uncheck ""([^""]*)""$"," When I uncheck ""Send me letters""",field
+"^(?:I|i) select following values from ""([^""]*)"":$"," When I select following values from ""Filters"": Accepts Gherkin Table","field, values"
+"^(?:I|i) unselect following values from ""([^""]*)"":$"," When I unselect following values from ""Filters"": Accepts Gherkin Table","field, values"
+"^(?:|I )choose ""([^""]*)""$"," When I choose ""radio 1""",field
+"^(?:|I )attach the file ""([^""]*)"" to ""([^""]*)""$",N/A,"file, field"
+"^(?:|I )press ""([^""]*)""$"," When I press ""Submit""",button
+"^I click the ""(.*?)"" (?:button|link)$"," When I click the ""Submit"" button",button_or_link
+"^I press the ""(.*?)"" key$"," Not implemented yet",key
+^I accept the confirmation dialog box$," Not implemented yet",N/A
+-------THE FOLLOWING STEPS ARE IN THE---------,/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/form_verification_steps.rb,-------FILE-------
+"^the ""([^""]*)"" field(?: within (.*))? should contain ""([^""]*)""$"," Then the ""Name"" field should contain ""my name""","field, parent, value"
+"^the ""([^""]*)"" field(?: within (.*))? should not contain ""([^""]*)""$"," And the ""Name"" field should not contain ""not my name""  ","field, parent, value"
+"^the select ""([^""]*)"" should have following options:$"," Then the select ""Your favorite colors"": Accepts Gherkin Table","field, options"
+"^the following values should be selected in ""([^""]*)"":$"," And the following values should be selected in ""Your favorite colors"": Accepts Gherkin Table with one column","select_box, values"
+"^the following values should not be selected in ""([^""]*)"":$"," And the following values should not be selected in ""Your favorite colors"":","select_box, values"
+"^the ""([^""]*)"" checkbox(?: within (.*))? should be checked$"," And the ""Accept user agrement"" checkbox should be checked","label, parent"
+"^the ""([^""]*)"" checkbox(?: within (.*))? should not be checked$"," And the ""Do not touch me"" checkbox should not be checked","label, parent"
+"^the ""(.*?)"" selectbox should contain:$"," And the ""Sex"" selectbox should contain: Accepts a single column Gherkin table","locator, options"
+"^the ""(.*?)"" radio should be selected$"," And the ""radio 1"" radio should be selected",locator
+"^the ""(.*?)"" radio should not be selected$"," And the ""radio 2"" radio should not be selected",locator
+"^""(.*?)"" should be the default date for ""(.*?)""$"," Then ""12/31/2013"" should be the default date for ""datepicker""","date_rule, field"
+-------THE FOLLOWING STEPS ARE IN THE---------,/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/navigation_steps.rb,-------FILE-------
+"^(?:|I )am on the ""(.*)"" page$"," Given I am on the ""home"" page",page_name
+"^(?:|I )go to the ""(.*)"" page$"," When  I go to the ""other"" page",page_name
+"^(?:|I )follow ""([^""]*)""$"," When I follow ""Privacy Policy""",link
+-------THE FOLLOWING STEPS ARE IN THE---------,/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/scoper.rb,-------FILE-------
+^(.*) within(?: the| an?)? (.*)$,N/A,"step_def, parent"
+^(.*) within(?: the| an?)? (.*):$,N/A,"step_def, parent, table_or_string"
+-------THE FOLLOWING STEPS ARE IN THE---------,/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/verification_steps.rb,-------FILE-------
+"^I should be redirected to the ""(.*)"" page$"," Then  I should be redirected to the ""congratulations"" page",page
+"^(?:|I )should be on the ""(.*)"" page$"," Then  I should be on the ""congratulations"" page",page_name
+"^(?:|I )should see ""([^""]*)""$"," And I should see ""Great, you can click links!""",text
+"^(?:|I )should not see ""([^""]*)""$"," And I should not see ""some bla-bla""",text
+^(?:|I )should see \/([^\/]*)\/([imxo])?$," Then I should see /great/i","regexp,flags"
+^(?:|I )should not see \/([^\/]*)\/([imxo])?$," Then I should not see /bla-bla/i","regexp,flags"
+^I should see all of the texts:?$," Then I should see all of the texts: <pass a table with text values>",table
+"^I should see the ""(.*?)"" text as ""(.*)""$"," Not yet implemented","locator, text"
+"^(?: |I )should see the ""(.*)""(?: button| link)$"," Then I should see the ""Submit"" button",link_or_button_text
+"^(?: |I )should not see the ""(.*)""(?: button| link)$"," And I should not see the ""Click Me"" link",button_or_link_text
+"^I should see an? link that points to ""([^""]*)""$"," Then I should see a link that points to ""http://www.google.com/""",href_destination
+^I should see the following(?: errors| list):$," Not yet implemented",table
+"^I should see an? ""([^""]*)"" tag around the text ""([^""]*)""$"," Then I should see a ""td"" tag around ""bla""","tag_name, text"
+"^I should see an? ""([^""]*)"" with ""([^""]*)"" of ""([^""]*)""$"," Then I should see a ""div"" with ""id"" of ""ui-datepicker-div""","tag_name, attribute_name, attribute_value"
+"^I should see the image ""([^""]*)""$"," Then I should see the image ""Image1.jpg""",image_name
+^I should see all of the images:?$," Then I should see all of the images: <accepts a list of image names(src)>",table
+"^(?:|I )should see ""(.*)"" as alt text for (.*)$",N/A,"alt_text, locator"
+"^I should see the HTML5 audio source ""([^""]*)""$"," Then I should see the HTML5 audio source ""Audio.mp3""",audio_name
+^I should see all of the HTML5 audio sources:?$," Then I should see the HTML5 audio sources: <Accepts a list of audio file names>",table
+"^I should see the HTML5 video source ""([^""]*)""$"," Then I should see the HTML5 video source ""video1.mp4""",video_name
+^I should see all of the HTML5 video sources:$," Then I should see the HTML5 video sources: <accepts a table of video sources>",table
+^I should see (\d+) elements? kind of (.+)$," Then  I should see 2 elements kind of table's header","count, locator"
+^I should not see elements? kind of (.+)$," And I should not see elements kind of paragraphs",locator
+"^I should see ""(.*?)"" as ""(.*?)"" value$",N/A,"arg1, arg2"

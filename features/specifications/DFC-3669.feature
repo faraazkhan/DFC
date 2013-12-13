@@ -1,22 +1,43 @@
-Scenario: DFC-3669
-Given I am on the "Home" Page
-And I enter "Hawaii" in the "Location" field
-When I click the "search" button
-And I select "<Shifts Starting After 5 PM>|<In-Center Hemodialysis>|<Peritoneal Dialysis >|<Home Hemodialysis Training>" from the "Find Dialysis Facilities"
-When I click the "Update Results" button
-And I click "<Shifts Starting After 5 PM>|<In-Center Hemodialysis>|<Peritoneal Dialysis >|<Home Hemodialysis Training>" from the "Find Dialysis Facilities"
-When I click the "Update Results" button 
-And I select "<ALEXIS DIALYSIS CENTER>|<ALLIANCE COMMUNITY DIALYSIS>|<ANDOVER DIALYSIS>" from the "<Dialysis Facility Information >"
-When I click the "Compare Now" button
-And I should see "Compare Dialysis Facilities"
+Feature: Smoke Test DFC Search
+  Scenario Outline: Search with Valid Locations
+    Given I am on the "Home" page
+    When I fill in "Location" with "<Location>"
+    And I click the "Search" button
+    Then I should see "<ExpectedResult>" within "ResultsTable"
+    Examples:
+      |Location      | ExpectedResult                                       |
+      |22031         | FAIRFAX HOSPITAL FOR CHILDREN                        |
+      |Sacramento, CA| ALHAMBRA DIALYSIS CENTER                             |
 
 
-Home = http://medicare-iterationb1-test.cgifederal.com/dialysisfacilitycompare/search.html
-Location = .//*[@id='searchTxtBox']
-Search = .//*[@id='searchBoxButton']
-Shifts_Starting_After_5_PM = .//*[@id='findFacilities']/ul/li[1]/label
-In-Center_Hemodialysis = .//*[@id='findFacilities']/ul/li[2]/label
-Peritoneal_Dialysis = .//*[@id='findFacilities']/ul/li[3]/label
-Home_Hemodialysis_Training = .//*[@id='findFacilities']/ul/li[4]/label
-Find_Dialysis_Facilities = .//*[@id='findFacilities']/legend
-Update_Results = .//*[@id='btnUpdateResultsBottom']
+
+  Scenario Outline: Search with Valid Locations and Partial Facility Name with multiple matches
+    Given I am on the "Home" page
+    When I fill in "Location" with "<Location>"
+    And I move focus away from "Location"
+    And I fill in "Dialysis Facility Name" with "<FacilityName>"
+    And I click the "Search" button
+    Then I should see "<ExpectedResult>" within "ResultsTable"
+    Examples:
+      |Location      | FacilityName   | ExpectedResult                            |
+      |98201         |  pu            | PUGET SOUND KIDNEY CENTER                 |
+      |ATLANTA, GA   |  col           | COLLEGE PARK DIALYSIS CENTER LLC          |
+
+
+  Scenario Outline: Search with Valid Zip Code and Partial Facility Name with a single matche
+    Given I am on the "Home" page
+    When I fill in "Location" with "<Location>"
+    And I move focus away from "Location"
+    And I fill in "Dialysis Facility Name" with "<FacilityName>"
+    And I click the "Search" button
+    Then I should see "<ExpectedResult>" within "ProfileInformation"
+    Examples:
+      |Location       | FacilityName   | ExpectedResult                            |
+      |98201          |  smokey        | PUGET SOUND KIDNEY CENTER SMOKEY POINT    |
+      |Tempe, AZ      |  arca          | ARCADIA DIALYSIS CENTER (FMC)             |
+
+  Scenario: Restart search with the Start New Search Button
+    Given I am on the "ResultsForAtlantaGA_Col" page
+    And I click the "Start New Search" button
+    Then I should be redirected to the "Home" page
+

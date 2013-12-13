@@ -1,0 +1,143 @@
+/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	
+	<title>Responsive Table</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style type="text/css">
+    * { 
+	margin: 0; 
+	padding: 0; 
+}
+body { 
+	font: 14px/1.4 Georgia, Serif; 
+}
+#page-wrap {
+	margin: 50px;
+}
+p {
+	margin: 20px 0; 
+}
+
+	/* 
+	Generic Styling, for Desktops/Laptops 
+	*/
+	table { 
+		width: 100%; 
+		border-collapse: collapse; 
+	}
+	/* Zebra striping */
+	tr:nth-of-type(odd) { 
+		background: #eee; 
+	}
+	th { 
+		background: #333; 
+		color: white; 
+		font-weight: bold; 
+	}
+	td, th { 
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: left; 
+	}
+  </style>
+	<!--[if !IE]><!-->
+	<style>
+	
+	/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+	@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		
+		tr { border: 1px solid #ccc; }
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee; 
+			position: relative;
+			padding-left: 50%; 
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+		}
+		
+		/*
+		Label the data
+		*/
+    td:nth-of-type(1):before { content: 'steps'; }td:nth-of-type(2):before { content: 'example'; }td:nth-of-type(3):before { content: 'arguments'; }
+	}
+	
+	/* Smartphones (portrait and landscape) ----------- */
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+		body { 
+			padding: 0; 
+			margin: 0; 
+			width: 320px; }
+		}
+	
+	/* iPads (portrait and landscape) ----------- */
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+		body { 
+			width: 495px; 
+		}
+	}
+	
+	</style>
+	<!--<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+	<h1>Available Steps</h1>
+  
+	<p>These steps are automatically installed with the gem</p>
+	<table>
+		<thead>
+		<tr>
+      <tr><th>steps</th><th>example</th><th>arguments</th></tr>
+    </tr>
+		</thead>
+		<tbody>
+	    <tr><td>-------THE FOLLOWING STEPS ARE IN THE---------</td><td>/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/debugging_steps.rb</td><td>-------FILE-------</td></tr><tr><td>^show me the page$</td><td> Then show me the page</td><td>N/A</td></tr><tr><td>^I debug$</td><td> Then I debug</td><td>N/A</td></tr><tr><td>^I wait (\d+) second(?:|s)$</td><td> And I wait 10 seconds</td><td>seconds</td></tr><tr><td>-------THE FOLLOWING STEPS ARE IN THE---------</td><td>/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/form_steps.rb</td><td>-------FILE-------</td></tr><tr><td>^(?:|I )fill in the following:$</td><td>N/A</td><td>fields</td></tr><tr><td>^(?:|I )fill in "([^"]*)" with "([^"]*)"$</td><td> When I fill in "Name" with "my name"</td><td>field, value</td></tr><tr><td>^(?:|I )fill in "([^"]*)" with:$</td><td> See Gist</td><td>field, value</td></tr><tr><td>^I enter "(.*?)" in the "(.*?)" field$</td><td>  And I enter "I made this" in the "Describe yourself" field</td><td>value, field</td></tr><tr><td>^I key in the date "(.*?)" in the "(.*?)" field$</td><td> Then I key in the date "12/01/2013" in the "Date" field</td><td>date_rule, field</td></tr><tr><td>^(?:|I )select "([^"]*)" from "([^"]*)"$</td><td> When I select "Male" from "Sex"</td><td>value, field</td></tr><tr><td>^(?:|I )check "([^"]*)"$</td><td> And I check "Accept user agrement"</td><td>field</td></tr><tr><td>^(?:|I )uncheck "([^"]*)"$</td><td> When I uncheck "Send me letters"</td><td>field</td></tr><tr><td>^(?:I|i) select following values from "([^"]*)":$</td><td> When I select following values from "Filters": Accepts Gherkin Table</td><td>field, values</td></tr><tr><td>^(?:I|i) unselect following values from "([^"]*)":$</td><td> When I unselect following values from "Filters": Accepts Gherkin Table</td><td>field, values</td></tr><tr><td>^(?:|I )choose "([^"]*)"$</td><td> When I choose "radio 1"</td><td>field</td></tr><tr><td>^(?:|I )attach the file "([^"]*)" to "([^"]*)"$</td><td>N/A</td><td>file, field</td></tr><tr><td>^(?:|I )press "([^"]*)"$</td><td> When I press "Submit"</td><td>button</td></tr><tr><td>^I click the "(.*?)" (?:button|link)$</td><td> When I click the "Submit" button</td><td>button_or_link</td></tr><tr><td>^I press the "(.*?)" key$</td><td> Not implemented yet</td><td>key</td></tr><tr><td>^I accept the confirmation dialog box$</td><td> Not implemented yet</td><td>N/A</td></tr><tr><td>-------THE FOLLOWING STEPS ARE IN THE---------</td><td>/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/form_verification_steps.rb</td><td>-------FILE-------</td></tr><tr><td>^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$</td><td> Then the "Name" field should contain "my name"</td><td>field, parent, value</td></tr><tr><td>^the "([^"]*)" field(?: within (.*))? should not contain "([^"]*)"$</td><td> And the "Name" field should not contain "not my name"  </td><td>field, parent, value</td></tr><tr><td>^the select "([^"]*)" should have following options:$</td><td> Then the select "Your favorite colors": Accepts Gherkin Table</td><td>field, options</td></tr><tr><td>^the following values should be selected in "([^"]*)":$</td><td> And the following values should be selected in "Your favorite colors": Accepts Gherkin Table with one column</td><td>select_box, values</td></tr><tr><td>^the following values should not be selected in "([^"]*)":$</td><td> And the following values should not be selected in "Your favorite colors":</td><td>select_box, values</td></tr><tr><td>^the "([^"]*)" checkbox(?: within (.*))? should be checked$</td><td> And the "Accept user agrement" checkbox should be checked</td><td>label, parent</td></tr><tr><td>^the "([^"]*)" checkbox(?: within (.*))? should not be checked$</td><td> And the "Do not touch me" checkbox should not be checked</td><td>label, parent</td></tr><tr><td>^the "(.*?)" selectbox should contain:$</td><td> And the "Sex" selectbox should contain: Accepts a single column Gherkin table</td><td>locator, options</td></tr><tr><td>^the "(.*?)" radio should be selected$</td><td> And the "radio 1" radio should be selected</td><td>locator</td></tr><tr><td>^the "(.*?)" radio should not be selected$</td><td> And the "radio 2" radio should not be selected</td><td>locator</td></tr><tr><td>^"(.*?)" should be the default date for "(.*?)"$</td><td> Then "12/31/2013" should be the default date for "datepicker"</td><td>date_rule, field</td></tr><tr><td>-------THE FOLLOWING STEPS ARE IN THE---------</td><td>/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/navigation_steps.rb</td><td>-------FILE-------</td></tr><tr><td>^(?:|I )am on the "(.*)" page$</td><td> Given I am on the "home" page</td><td>page_name</td></tr><tr><td>^(?:|I )go to the "(.*)" page$</td><td> When  I go to the "other" page</td><td>page_name</td></tr><tr><td>^(?:|I )follow "([^"]*)"$</td><td> When I follow "Privacy Policy"</td><td>link</td></tr><tr><td>-------THE FOLLOWING STEPS ARE IN THE---------</td><td>/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/scoper.rb</td><td>-------FILE-------</td></tr><tr><td>^(.*) within(?: the| an?)? (.*)$</td><td>N/A</td><td>step_def, parent</td></tr><tr><td>^(.*) within(?: the| an?)? (.*):$</td><td>N/A</td><td>step_def, parent, table_or_string</td></tr><tr><td>-------THE FOLLOWING STEPS ARE IN THE---------</td><td>/Users/faraaz/.rvm/gems/ruby-2.0.0-p247/gems/cms_automation-0.1.1/lib/cms_automation/websteps/verification_steps.rb</td><td>-------FILE-------</td></tr><tr><td>^I should be redirected to the "(.*)" page$</td><td> Then  I should be redirected to the "congratulations" page</td><td>page</td></tr><tr><td>^(?:|I )should be on the "(.*)" page$</td><td> Then  I should be on the "congratulations" page</td><td>page_name</td></tr><tr><td>^(?:|I )should see "([^"]*)"$</td><td> And I should see "Great, you can click links!"</td><td>text</td></tr><tr><td>^(?:|I )should not see "([^"]*)"$</td><td> And I should not see "some bla-bla"</td><td>text</td></tr><tr><td>^(?:|I )should see \/([^\/]*)\/([imxo])?$</td><td> Then I should see /great/i</td><td>regexp,flags</td></tr><tr><td>^(?:|I )should not see \/([^\/]*)\/([imxo])?$</td><td> Then I should not see /bla-bla/i</td><td>regexp,flags</td></tr><tr><td>^I should see all of the texts:?$</td><td> Then I should see all of the texts: <pass a table with text values></td><td>table</td></tr><tr><td>^I should see the "(.*?)" text as "(.*)"$</td><td> Not yet implemented</td><td>locator, text</td></tr><tr><td>^(?: |I )should see the "(.*)"(?: button| link)$</td><td> Then I should see the "Submit" button</td><td>link_or_button_text</td></tr><tr><td>^(?: |I )should not see the "(.*)"(?: button| link)$</td><td> And I should not see the "Click Me" link</td><td>button_or_link_text</td></tr><tr><td>^I should see an? link that points to "([^"]*)"$</td><td> Then I should see a link that points to "http://www.google.com/"</td><td>href_destination</td></tr><tr><td>^I should see the following(?: errors| list):$</td><td> Not yet implemented</td><td>table</td></tr><tr><td>^I should see an? "([^"]*)" tag around the text "([^"]*)"$</td><td> Then I should see a "td" tag around "bla"</td><td>tag_name, text</td></tr><tr><td>^I should see an? "([^"]*)" with "([^"]*)" of "([^"]*)"$</td><td> Then I should see a "div" with "id" of "ui-datepicker-div"</td><td>tag_name, attribute_name, attribute_value</td></tr><tr><td>^I should see the image "([^"]*)"$</td><td> Then I should see the image "Image1.jpg"</td><td>image_name</td></tr><tr><td>^I should see all of the images:?$</td><td> Then I should see all of the images: <accepts a list of image names(src)></td><td>table</td></tr><tr><td>^(?:|I )should see "(.*)" as alt text for (.*)$</td><td>N/A</td><td>alt_text, locator</td></tr><tr><td>^I should see the HTML5 audio source "([^"]*)"$</td><td> Then I should see the HTML5 audio source "Audio.mp3"</td><td>audio_name</td></tr><tr><td>^I should see all of the HTML5 audio sources:?$</td><td> Then I should see the HTML5 audio sources: <Accepts a list of audio file names></td><td>table</td></tr><tr><td>^I should see the HTML5 video source "([^"]*)"$</td><td> Then I should see the HTML5 video source "video1.mp4"</td><td>video_name</td></tr><tr><td>^I should see all of the HTML5 video sources:$</td><td> Then I should see the HTML5 video sources: <accepts a table of video sources></td><td>table</td></tr><tr><td>^I should see (\d+) elements? kind of (.+)$</td><td> Then  I should see 2 elements kind of table's header</td><td>count, locator</td></tr><tr><td>^I should not see elements? kind of (.+)$</td><td> And I should not see elements kind of paragraphs</td><td>locator</td></tr><tr><td>^I should see "(.*?)" as "(.*?)" value$</td><td>N/A</td><td>arg1, arg2</td></tr>
+		</tbody>
+	</table>
+	
+	</div>
+		
+</body>
+
+</html>

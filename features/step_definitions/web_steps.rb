@@ -1,1 +1,1 @@
-require 'cms_automation/websteps'
+require 'callisto/steps'
