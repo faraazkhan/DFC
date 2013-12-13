@@ -1,0 +1,5 @@
+## Test Application Selectors
+SquirrelImageXpath: "xpath:/html/body/img[1]"
+SquirrelImageCSS: "css:img"
+Header2Xpath: "xpath:/html/body/table/tbody/tr[1]/th[2]"
+Header1CSS: "css:html > body > table > tbody > tr > th:first-child"

@@ -1,0 +1,8 @@
+#initialize variables
+<% common = "ENVIRONMENT=Production -r features/support  -r features/step_definitions " %> 
+<% selenium = "-r features/profiles/selenium.rb " %>
+<% steps = "--tags @steps " %>
+default: --profile firefox
+#create profiles
+firefox:    <%= common + selenium + steps %>  features
+
